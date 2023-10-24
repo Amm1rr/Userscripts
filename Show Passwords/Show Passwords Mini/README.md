@@ -1,22 +1,24 @@
-# Magic Userscripts
+# Show Passwords Mini
 
 <hr>
 
 <div align="center">
-  <img src="Icon.png" alt="Magic Userscripts" width="150">
+  <img src="Show Passwords Mini.icon.png" alt="Show Passwords Mini" width="100">
 </div>
 
 
 ## Overview
 
-Empower your web browsing experience with Magic UserScripts. Transform the web with a collection of powerful userscripts.
+The "Show Passwords Mini" user script is a lightweight browser script that enhances your web browsing experience by allowing you to reveal hidden passwords on websites. It's a handy tool for easily viewing passwords you've saved in your browser.
 
-To use any of user scripts, you'll need a user script manager browser extension such as Tampermonkey or Greasemonkey.
+## Features
 
+- **Password Visibility:** Instantly unmask and reveal hidden passwords on websites.
+- **User-Friendly:** Easy to use, simply hover the mouse cursor over the password textbox for accessibility.
 
 ## Installation
 
-1. **Install a User Script Manager:**
+1. **Install a User Script Manager:** To use this script, you'll need a user script manager browser extension such as Tampermonkey or Greasemonkey.
 
    - **Tampermonkey:** [Install for Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/) | [Install for Chrome](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo) | [Install for Safari](https://apps.apple.com/us/app/tampermonkey/id1482490089) | [Install for Opera](https://addons.opera.com/en-gb/extensions/details/tampermonkey-beta/)
    - **Greasemonkey:** [Install for Firefox](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/)
@@ -24,20 +26,11 @@ To use any of user scripts, you'll need a user script manager browser extension 
 
 2. **Install the Script:**
 
-   - [Click here to install Show Passwords](Show%20Passwords/Show%20Passwords.user.js)
+   - [Click here to install Show Passwords Mini](Show%20Passwords%20Mini/Show%20Passwords%20Mini.user.js)
 
 3. **Usage:**
 
-   - After installing a user script manager, simply click on any user.js file, and the installation wizard will appear.
-
-<br>
-
-## Userscripts List
-
-   - [__Show Passwords__](Show Passwords/Show Passwords/Show Passwords.user.js) : Show passwords on mouse hover with extra feature - [README](Show Passwords/Show Passwords/README.md)
-   - [__Show Passwords Mini__](Show Passwords/Show Passwords Mini/Show Passwords Mini.user.js) : Show passwords on mouse hover - [README](Show Passwords/Show Passwords Mini/README.md)
-
-<br>
+   - Visit a website with password fields, and hover the mouse cursor over the password fields to reveal the passwords.
 
 ## Compatibility
 
@@ -55,6 +48,6 @@ This user script was created by [Amm1rr]. Feel free to report issues or contribu
 
 If you encounter any issues or have suggestions for improvements, please don't hesitate to [open an issue on GitHub](https://github.com/amm1rr/Magic-Userscripts/issues).
 
-Happy browsing and enjoy the convenience of revealing your passwords effortlessly with Show Passwords!
+Happy browsing and enjoy the convenience of revealing your passwords effortlessly with Show Passwords Mini!
 
 [![](https://visitcount.itsvg.in/api?id=amm1rr&label=V&color=0&icon=2&pretty=true)](https://github.com/Amm1rr/)
