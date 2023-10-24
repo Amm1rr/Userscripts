@@ -31,8 +31,8 @@ To use any of user scripts, you'll need a user script manager browser extension 
 
 ## Userscripts List
 
-   - [__Show Passwords__](Show Passwords/Show Passwords/Show Passwords.user.js) : Show passwords on mouse hover with extra feature - [README](Show Passwords/Show Passwords/README.md)
-   - [__Show Passwords Mini__](Show Passwords/Show Passwords Mini/Show Passwords Mini.user.js) : Show passwords on mouse hover - [README](Show Passwords/Show Passwords Mini/README.md)
+   - [__Show Passwords__](Show%20Passwords/Show%20Passwords/Show%20Passwords.user.js) : Show passwords on mouse hover with extra feature - [README](Show%20Passwords/Show%20Passwords/README.md)
+   - [__Show Passwords Mini__](Show%20Passwords/Show%20Passwords%20Mini/Show%20Passwords%20Mini.user.js) : Show passwords on mouse hover - [README](Show%20Passwords/Show%20Passwords%20Mini/README.md)
 
 <br>
 

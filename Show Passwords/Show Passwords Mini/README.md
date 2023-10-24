@@ -26,7 +26,7 @@ The "Show Passwords Mini" user script is a lightweight browser script that enhan
 
 2. **Install the Script:**
 
-   - [Click here to install Show Passwords Mini](Show%20Passwords%20Mini/Show%20Passwords%20Mini.user.js)
+   - [Click here to install Show Passwords Mini](Show%20Passwords%20Mini.user.js)
 
 3. **Usage:**
 

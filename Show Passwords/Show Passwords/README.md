@@ -27,7 +27,7 @@ The "Show Passwords" user script is a lightweight browser script that enhances y
 
 2. **Install the Script:**
 
-   - [Click here to install Show Passwords](Show%20Passwords/Show%20Passwords.user.js)
+   - [Click here to install Show Passwords](Show%20Passwords.user.js)
 
 3. **Usage:**
 
