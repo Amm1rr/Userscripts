@@ -24,11 +24,8 @@ To use any of user scripts, you'll need a user script manager browser extension 
 
 2. **Install the Script:**
 
-   - [Click here to install Show Passwords](Show%20Passwords/Show%20Passwords.user.js)
-
-3. **Usage:**
-
    - After installing a user script manager, simply click on any user.js file, and the installation wizard will appear.
+
 
 <br>
 
