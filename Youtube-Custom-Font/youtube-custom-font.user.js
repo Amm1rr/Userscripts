@@ -8,8 +8,9 @@
 // @match        https://*.youtube.*/*
 // @icon         https://cdn.jsdelivr.net/gh/Amm1rr/Userscripts@main/Youtube-Custom-Font/Icon.png
 // @grant        none
-// @updateURL    https://github.com/Amm1rr/Userscripts/raw/main/Youtube-Custom-Font/youtube-custom-font.user.js
 // @license      MIT
+// @updateURL    https://github.com/Amm1rr/Userscripts/raw/main/Youtube-Custom-Font/youtube-custom-font.user.js
+// @downloadURL  https://github.com/Amm1rr/Userscripts/raw/main/Youtube-Custom-Font/youtube-custom-font.user.js
 // ==/UserScript==
 
 // Description:
