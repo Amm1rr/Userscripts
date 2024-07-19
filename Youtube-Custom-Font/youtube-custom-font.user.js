@@ -6,9 +6,9 @@
 // @homepage     https://github.com/Amm1rr/
 // @namespace    amm1rr.youtube.custom.font
 // @match        https://*.youtube.*/*
-// @icon
+// @icon         https://cdn.jsdelivr.net/gh/Amm1rr/Userscripts@main/Youtube-Custom-Font/Icon.png
 // @grant        none
-// @updateURL    https://gist.github.com/Amm1rr/a99724466256da42c4ef08c144a790d7/raw/e3a22769f09e3732aa5c61ce9060d768c4474326/youtube-custom-font.user.js
+// @updateURL    https://github.com/Amm1rr/Userscripts/raw/main/Youtube-Custom-Font/youtube-custom-font.user.js
 // @license      MIT
 // ==/UserScript==
 
