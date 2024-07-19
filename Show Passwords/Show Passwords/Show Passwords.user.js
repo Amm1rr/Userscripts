@@ -5,8 +5,9 @@
 // @description:fa  "برای نمایش پسورد، موس را روی فیلدهای پسورد نگه دارید."
 // @author       Amm1rr (soheyl637@gmail.com)
 // @icon         https://cdn.jsdelivr.net/gh/Amm1rr/Userscripts@main/Show%20Passwords/Show%20Passwords/Show%20Passwords.icon.png
-// @url          https://github.com/Amm1rr/Userscripts/tree/main/Show%20Passwords/Show%20Passwords
+// @homepage     https://github.com/Amm1rr/Userscripts/tree/main/Show%20Passwords/Show%20Passwords
 // @updateURL    https://github.com/Amm1rr/Userscripts/raw/main/Show%20Passwords/Show%20Passwords/Show%20Passwords.user.js
+// @downloadURL  https://github.com/Amm1rr/Userscripts/raw/main/Show%20Passwords/Show%20Passwords/Show%20Passwords.user.js
 // @match        *://*/*
 // @require      https://greasyfork.org/scripts/408776-dms-userscripts-toolkit/code/DMS-UserScripts-Toolkit.js?version=840920
 // @inject-into  content
