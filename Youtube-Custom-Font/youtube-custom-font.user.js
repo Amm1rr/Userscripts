@@ -22,7 +22,8 @@
   // Configuration object for easy customization
   const config = {
     fontFamily: "Vazirmatn",
-    selector: ".style-scope",
+    // selector: ".style-scope", //Youtube Class
+    selector: "*",
     buttonID: "yt-custom-font",
     buttonText: "A",
     notificationDuration: 2000,
