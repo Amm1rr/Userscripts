@@ -26,61 +26,63 @@
 // ==/UserScript==
 
 const regMenuBar = () => {
+  const DMSTookit = new DMS_UserScripts.Toolkit({
+    GM_info,
+    GM_addStyle,
+    GM_getValue,
+    GM_setValue,
+    GM_deleteValue,
+    GM_registerMenuCommand,
+    GM_unregisterMenuCommand,
+    GM_openInTab,
+  });
 
-	const DMSTookit = new DMS_UserScripts.Toolkit({
-		GM_info,
-		GM_addStyle,
-		GM_getValue,
-		GM_setValue,
-		GM_deleteValue,
-		GM_registerMenuCommand,
-		GM_unregisterMenuCommand,
-		GM_openInTab,
-	})
+  const configName = "showPass_config";
+  const configMap = DMSTookit.proxyDataAuto(configName, {
+    enable: true,
+  });
 
-	const configName = 'showPass_config'
-	const configMap = DMSTookit.proxyDataAuto(configName, {
-		enable: true
-	})
+  DMSTookit.menuToggle(configMap, "Enable", "1. 🍏Deactive", "1. 🍎Active");
+  DMSTookit.menuLink(
+    "2. 🕸️ About...",
+    "https://github.com/Amm1rr/Userscripts/tree/main/Show%20Passwords/Show%20Passwords/"
+  );
 
-	DMSTookit.menuToggle(configMap, 'Enable', '1. 🍏Deactive', '1. 🍎Active')
-	DMSTookit.menuLink("2. 🕸️ About...", "https://github.com/amm1rr/Magic-Userscripts/")
-
-	return configMap;
-}
+  return configMap;
+};
 
 const regCilckEvent = () => {
-	document.addEventListener("click", function(event) {
-		var obj = event.srcElement;
-		if (obj.nodeName === 'INPUT') {
-			if (obj.type === 'password') {
-				obj.type = 'text';
-				obj.bk_type = 'password';
+  document.addEventListener("click", function (event) {
+    var obj = event.srcElement;
+    if (obj.nodeName === "INPUT") {
+      if (obj.type === "password") {
+        obj.type = "text";
+        obj.bk_type = "password";
 
-				obj.addEventListener('blur', function() {
-					obj.type = 'password';
-				});
+        obj.addEventListener("blur", function () {
+          obj.type = "password";
+        });
 
-				obj.addEventListener('mouseout', function() {
-					obj.type = 'password';
-				});
+        obj.addEventListener("mouseout", function () {
+          obj.type = "password";
+        });
 
-				obj.addEventListener('mouseover', function() {
-					obj.type = 'text';
-				});
+        obj.addEventListener("mouseover", function () {
+          obj.type = "text";
+        });
 
-				return;
-			}
+        return;
+      }
 
-			if (obj.bk_type === 'password') {
-				obj.type = 'password';
-				obj.removeEventListener('blur');
-				obj.removeEventListener('mouseout');
-				obj.removeEventListener('mouseover');
-			}
-		}
-	});
-	/* 	document.addEventListener("click", function(event) {
+      if (obj.bk_type === "password") {
+        obj.type = "password";
+        obj.removeEventListener("blur");
+        obj.removeEventListener("mouseout");
+        obj.removeEventListener("mouseover");
+      }
+    }
+  });
+  /* 	document.addEventListener("click", function(event) {
 		var obj = event.srcElement;
 		if (obj.nodeName === 'INPUT') {
 			if (obj.type === 'password') {
@@ -97,12 +99,11 @@ const regCilckEvent = () => {
 			}
 		}
 	}); */
-}
+};
 
-(function() {
-	'use strict';
+(function () {
+  "use strict";
 
-	const config = regMenuBar();
-	config.enable && regCilckEvent();
-
+  const config = regMenuBar();
+  config.enable && regCilckEvent();
 })();
