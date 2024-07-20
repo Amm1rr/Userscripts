@@ -31,8 +31,10 @@ To use any of user scripts, you'll need a user script manager browser extension 
 
 ## Userscripts List
 
-   - [__Show Passwords__](Show%20Passwords/Show%20Passwords/Show%20Passwords.user.js) : Show passwords on mouse hover with extra feature - [README](Show%20Passwords/Show%20Passwords/README.md)
-   - [__Show Passwords Mini__](Show%20Passwords/Show%20Passwords%20Mini/Show%20Passwords%20Mini.user.js) : Show passwords on mouse hover - [README](Show%20Passwords/Show%20Passwords%20Mini/README.md)
+   - [__Show Passwords__](https://cdn.jsdelivr.net/gh/Amm1rr/Userscripts@main/Show%20Passwords/Show%20Passwords/Show%20Passwords.user.js) : Show passwords on mouse hover with extra feature - [README](Show%20Passwords/Show%20Passwords/README.md)
+   - [__Show Passwords Mini__](https://cdn.jsdelivr.net/gh/Amm1rr/Userscripts@main/Show%20Passwords/Show%20Passwords%20Mini/Show%20Passwords%20Mini.user.js) : Show passwords on mouse hover - [README](Show%20Passwords/Show%20Passwords%20Mini/README.md)
+   - [__Youtube Custom Font__](https://cdn.jsdelivr.net/gh/Amm1rr/Userscripts@main/Youtube-Custom-Font/youtube-custom-font.user.js) : Change font on YouTube pages - [README](Youtube-Custom-Font/README.MD)
+
 
 <br>
 
