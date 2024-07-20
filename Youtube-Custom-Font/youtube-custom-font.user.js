@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Youtube Custom Font
-// @version      0.1
+// @version      0.1.1
 // @author       Amm1rr
 // @description  Applies a custom font, Vazirmatn, to all text elements on the current web page (YouTube).
 // @homepage     https://github.com/Amm1rr/
