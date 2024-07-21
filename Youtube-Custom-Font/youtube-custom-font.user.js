@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Youtube Custom Font
-// @version      0.1.1
+// @version      0.2
 // @author       Amm1rr
 // @description  Applies a custom font, Vazirmatn, to all text elements on the current web page (YouTube).
 // @homepage     https://github.com/Amm1rr/
@@ -18,11 +18,10 @@
 // Clicking the button applies a custom font, Vazirmatn, to all text elements on the webpage.
 // You can customize the font family and element selector to your preference.
 
+
 (function () {
-  // Configuration object for easy customization
   const config = {
     fontFamily: "Vazirmatn",
-    // selector: ".style-scope", //Youtube Class
     selector: "*",
     buttonID: "yt-custom-font",
     buttonText: "A",
@@ -36,18 +35,35 @@
     console.log(
       "Custom Font: " + config.buttonID + " button already exists.\n bye bye()"
     );
-    // console.log("Custom Font: bye bye()");
     return;
   }
 
-  // Apply custom font to selected elements
-  function applyCustomFont(selector, fontFamily) {
-    const style = document.createElement("style");
-    style.textContent = `${selector} * {font-family: ${fontFamily} !important;}`;
-    document.head.appendChild(style);
+  let isActive = false;
+  let originalFonts = new Map();
+
+  function storeOriginalFonts(selector) {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach(el => {
+      if (!originalFonts.has(el)) {
+        originalFonts.set(el, window.getComputedStyle(el).fontFamily);
+      }
+    });
   }
 
-  // Show notification with fade effect
+  function applyCustomFont(selector, fontFamily) {
+    storeOriginalFonts(selector);
+    const elements = document.querySelectorAll(selector);
+    elements.forEach(el => {
+      el.style.fontFamily = `${fontFamily}, ${originalFonts.get(el)}`;
+    });
+  }
+
+  function removeCustomFont() {
+    originalFonts.forEach((originalFont, el) => {
+      el.style.fontFamily = originalFont;
+    });
+  }
+
   function showNotification(message, duration) {
     const notification = document.createElement("div");
     Object.assign(notification.style, {
@@ -82,7 +98,6 @@
     }, duration);
   }
 
-  // Create and add font change button
   function addFontChangeButton() {
     const button = document.createElement("button");
     button.id = config.buttonID;
@@ -121,20 +136,45 @@
     button.addEventListener("mouseover", () => setButtonHoverState(true));
     button.addEventListener("mouseleave", () => setButtonHoverState(false));
 
-    button.addEventListener("click", () => {
-      button.disabled = true;
-      button.style.cursor = "default";
-      button.style.backgroundColor = "rgba(123, 110, 242, 0.3)";
+    const menu = document.createElement("div");
+    menu.style.cssText = `
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: rgba(128, 128, 128, 0.8);
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 5px 0;
+      display: none;
+      z-index: 10000;
+    `;
 
-      applyCustomFont(config.selector, config.fontFamily);
-      showNotification(config.notificationMessage, config.notificationDuration);
+    const activeItem = createMenuItem("Active", () => {
+      if (!isActive) {
+        isActive = true;
+        applyCustomFont(config.selector, config.fontFamily);
+        showNotification("Custom font activated", config.notificationDuration);
+      }
+    });
 
-      button.style.opacity = "0";
-      setTimeout(() => {
-        button.disabled = false;
-        button.style.cursor = "pointer";
-        button.style.opacity = "1";
-      }, config.buttonFadeDuration);
+    const inactiveItem = createMenuItem("Inactive", () => {
+      if (isActive) {
+        isActive = false;
+        removeCustomFont();
+        showNotification("Custom font deactivated", config.notificationDuration);
+      }
+    });
+
+    menu.appendChild(activeItem);
+    menu.appendChild(inactiveItem);
+
+    button.appendChild(menu);
+
+    button.addEventListener("mouseenter", () => {
+      menu.style.display = "block";
+    });
+    button.addEventListener("mouseleave", () => {
+      menu.style.display = "none";
     });
 
     document.body.appendChild(button);
@@ -149,6 +189,23 @@
     document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
   }
 
-  // Initialize the font change functionality
+  function createMenuItem(text, onClick) {
+    const item = document.createElement("div");
+    item.textContent = text;
+    item.style.cssText = `
+      padding: 5px 10px;
+      cursor: pointer;
+      color: white;
+    `;
+    item.addEventListener("click", onClick);
+    item.addEventListener("mouseenter", () => {
+      item.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
+    });
+    item.addEventListener("mouseleave", () => {
+      item.style.backgroundColor = "transparent";
+    });
+    return item;
+  }
+
   addFontChangeButton();
 })();
