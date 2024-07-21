@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Youtube Custom Font
-// @version      0.2
+// @version      0.3
 // @author       Amm1rr
 // @description  Applies a custom font, Vazirmatn, to all text elements on the current web page (YouTube).
 // @homepage     https://github.com/Amm1rr/
@@ -14,15 +14,25 @@
 // ==/UserScript==
 
 // Description:
-// This script injects a small "bubble button" on the top left corner of the YouTube page.
-// Clicking the button applies a custom font, Vazirmatn, to all text elements on the webpage.
-// You can customize the font family and element selector to your preference.
-
+// This userscript enhances web browsing by allowing users to apply a custom font (Vazirmatn) to all websites.
+// It adds a small, unobtrusive button to the top-left corner of web pages.
+//
+// Features:
+// 1. Applies custom font (Vazirmatn) to all text on the webpage
+// 2. Provides a toggle button for easy activation/deactivation
+// 3. Shows a dropdown menu on hover with "Active" and "Inactive" options
+// 4. Displays notifications when font changes are applied or removed
+// 5. Hides the button during fullscreen mode
+//
+// Usage:
+// - Hover over the "A" button in the top-left corner to see options
+// - Click "Active" to apply the Vazirmatn font
+// - Click "Inactive" to revert to the original font
+//
 
 (function () {
   const config = {
     fontFamily: "Vazirmatn",
-    selector: "*",
     buttonID: "yt-custom-font",
     buttonText: "A",
     notificationDuration: 2000,
@@ -32,36 +42,35 @@
   };
 
   if (document.getElementById(config.buttonID)) {
-    console.log(
-      "Custom Font: " + config.buttonID + " button already exists.\n bye bye()"
-    );
+    console.log("Custom Font: " + config.buttonID + " button already exists.\n bye bye()");
     return;
   }
 
   let isActive = false;
-  let originalFonts = new Map();
+  let customStyle = null;
 
-  function storeOriginalFonts(selector) {
-    const elements = document.querySelectorAll(selector);
-    elements.forEach(el => {
-      if (!originalFonts.has(el)) {
-        originalFonts.set(el, window.getComputedStyle(el).fontFamily);
+  function createCustomStyle() {
+    customStyle = document.createElement('style');
+    customStyle.textContent = `
+      * {
+        font-family: ${config.fontFamily}, var(--ytcustom-original-font) !important;
       }
-    });
+    `;
+    document.head.appendChild(customStyle);
   }
 
-  function applyCustomFont(selector, fontFamily) {
-    storeOriginalFonts(selector);
-    const elements = document.querySelectorAll(selector);
-    elements.forEach(el => {
-      el.style.fontFamily = `${fontFamily}, ${originalFonts.get(el)}`;
-    });
+  function applyCustomFont() {
+    if (!customStyle) createCustomStyle();
+    document.documentElement.style.setProperty('--ytcustom-original-font', getComputedStyle(document.body).fontFamily);
+    customStyle.disabled = false;
+    isActive = true;
   }
 
   function removeCustomFont() {
-    originalFonts.forEach((originalFont, el) => {
-      el.style.fontFamily = originalFont;
-    });
+    if (customStyle) {
+      customStyle.disabled = true;
+    }
+    isActive = false;
   }
 
   function showNotification(message, duration) {
@@ -90,11 +99,7 @@
 
     setTimeout(() => {
       notification.style.opacity = "0";
-      notification.addEventListener(
-        "transitionend",
-        () => notification.remove(),
-        { once: true }
-      );
+      notification.addEventListener("transitionend", () => notification.remove(), { once: true });
     }, duration);
   }
 
@@ -132,8 +137,6 @@
     }
 
     button.addEventListener("mouseenter", () => setButtonHoverState(true));
-    button.addEventListener("mousemove", () => setButtonHoverState(true));
-    button.addEventListener("mouseover", () => setButtonHoverState(true));
     button.addEventListener("mouseleave", () => setButtonHoverState(false));
 
     const menu = document.createElement("div");
@@ -151,15 +154,13 @@
 
     const activeItem = createMenuItem("Active", () => {
       if (!isActive) {
-        isActive = true;
-        applyCustomFont(config.selector, config.fontFamily);
+        applyCustomFont();
         showNotification("Custom font activated", config.notificationDuration);
       }
     });
 
     const inactiveItem = createMenuItem("Inactive", () => {
       if (isActive) {
-        isActive = false;
         removeCustomFont();
         showNotification("Custom font deactivated", config.notificationDuration);
       }
